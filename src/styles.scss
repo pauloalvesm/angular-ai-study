@@ -1,0 +1,13 @@
+@import "bootstrap/scss/bootstrap";
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  --white-color-1: #FFF;
+  --green-color-1: #00FF00;
+  --blue-color-1: #1E90FF;
+  --red-color-1: #FF0000;
+  --purple-color-1: #A020F0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
