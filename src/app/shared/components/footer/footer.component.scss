@@ -1,0 +1,14 @@
+.custom-footer {
+  background-color: var(--blue-color-1) !important;
+
+  width: 100%;
+
+  span {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}
