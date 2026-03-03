@@ -16,9 +16,10 @@
   .nav-link {
     color: var(--gray-color-1) !important;
     transition: all 0.2s ease-in-out;
-    border-bottom: 2px solid transparent;
-    margin-right: 15px; 
+    margin-right: 15px;
     padding-bottom: 4px;
+    width: fit-content;
+    border-bottom: 2px solid transparent;
 
     &.active {
       color: var(--white-color-1) !important;
@@ -36,4 +37,16 @@
 .brand-highlight {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding-left: 0 !important;
+    padding-top: 1rem;
+
+    .nav-link {
+      padding-left: 0 !important;
+      margin-bottom: 10px;
+    }
+  }
 }
