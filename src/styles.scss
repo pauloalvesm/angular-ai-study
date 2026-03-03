@@ -1,13 +1,19 @@
 @import "bootstrap/scss/bootstrap";
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 
 :root {
   --white-color-1: #FFF;
   --green-color-1: #00FF00;
-  --blue-color-1: #1E90FF;
+  --blue-color-1: #00BFFF;
   --red-color-1: #FF0000;
   --purple-color-1: #A020F0;
+  --gray-color-1: rgba(255, 255, 255, 0.7);
+  --gray-color-2: rgba(255, 255, 255, 0.3);
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  font-family: 'Roboto', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
