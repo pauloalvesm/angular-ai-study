@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './modules/home/home.module';
 import { SharedModule } from './shared/shared.module';
 import { provideHttpClient } from '@angular/common/http';
+import { AskAiModule } from './modules/ask-ai/ask-ai.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { provideHttpClient } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    SharedModule
+    SharedModule,
+    AskAiModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

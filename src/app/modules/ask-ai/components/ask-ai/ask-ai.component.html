@@ -1,0 +1,53 @@
+<div class="container mt-4 animate__animated">
+  <div class="card shadow-sm">
+    <div class="card-header card-title-ia text-white text-center">
+      <h2 class="h5 mb-0">Talk With AI</h2>
+    </div>
+
+    <div class="card-body">
+      <div class="mb-3">
+        <label for="promptInput" class="form-label fw-bold">What do you want to know?</label>
+        <textarea
+          id="promptInput"
+          class="form-control"
+          rows="3"
+          [(ngModel)]="prompt"
+          placeholder="Enter your prompt here...">
+        </textarea>
+      </div>
+
+      <div class="d-flex gap-2 mb-4">
+        <button
+          type="button"
+          class="btn btn-outline-success d-flex align-items-center"
+          (click)="askAi()"
+          [disabled]="isLoading"> <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></span>
+
+          <i *ngIf="!isLoading" class="bi bi-check-square me-2"></i>
+
+          {{ isLoading ? 'Processing...' : 'Ask AI' }}
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-outline-danger d-flex align-items-center"
+          (click)="handleClear()">
+          <i class="bi bi-x-square me-2"></i>
+          Clear
+        </button>
+      </div>
+
+      <hr />
+
+      <div class="output-container p-3 border rounded bg-light" *ngIf="chatResponse || isLoading">
+        <div *ngIf="chatResponse && !isLoading" class="ai-response">
+          <p class="fw-bold border-bottom pb-2 text-success text-center">Response</p>
+          <div class="response-text">
+            {{ chatResponse }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
