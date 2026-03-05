@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
+  {
+    path: 'ask-ai',
+    loadChildren: () => import('./modules/ask-ai/ask-ai.module').then(m => m.AskAiModule)
+  },
 ];
 
 @NgModule({
