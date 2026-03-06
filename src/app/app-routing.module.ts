@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'ask-ai',
     loadChildren: () => import('./modules/ask-ai/ask-ai.module').then(m => m.AskAiModule)
   },
+  {
+    path: 'generate-recipe',
+    loadChildren: () => import('./modules/generate-recipe/generate-recipe.module').then(m => m.GenerateRecipeModule)
+  },
 ];
 
 @NgModule({
