@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { provideHttpClient } from '@angular/common/http';
 import { AskAiModule } from './modules/ask-ai/ask-ai.module';
 import { GenerateRecipeModule } from './modules/generate-recipe/generate-recipe.module';
+import { GenerateImageModule } from './modules/generate-image/generate-image.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GenerateRecipeModule } from './modules/generate-recipe/generate-recipe.
     HomeModule,
     SharedModule,
     AskAiModule,
-    GenerateRecipeModule
+    GenerateRecipeModule,
+    GenerateImageModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
