@@ -15,6 +15,14 @@ const routes: Routes = [
     path: 'generate-recipe',
     loadChildren: () => import('./modules/generate-recipe/generate-recipe.module').then(m => m.GenerateRecipeModule)
   },
+  {
+    path: 'generate-image',
+    loadChildren: () => import('./modules/generate-image/generate-image.module').then(m => m.GenerateImageModule)
+  },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({
