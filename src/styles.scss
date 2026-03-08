@@ -4,9 +4,9 @@
 
 :root {
   --white-color-1: #FFF;
-  --green-color-1: #00FF00;
+  --green-color-1: #31D931;
   --blue-color-1: #00BFFF;
-  --red-color-1: #FF0000;
+  --red-color-1: #D34343;
   --purple-color-1: #A020F0;
   --gray-color-1: rgba(255, 255, 255, 0.7);
   --gray-color-2: rgba(255, 255, 255, 0.3);
@@ -20,4 +20,38 @@ body {
 
 .card-title-ia {
   background-color: var(--blue-color-1);
+}
+
+.text-title {
+  color: var(--purple-color-1);
+  font-weight: 600;
+}
+
+.text-response {
+  color: var(--green-color-1);
+  font-weight: 600;
+}
+
+.button-success {
+  background-color: var(--white-color-1);
+  color: var(--green-color-1);
+  border-color: var(--green-color-1);
+}
+
+.button-success:hover {
+  background-color: var(--green-color-1);
+  color: var(--white-color-1);
+  border-color: var(--green-color-1);
+}
+
+.button-danger {
+  background-color: var(--white-color-1);
+  color: var(--red-color-1);
+  border-color: var(--red-color-1);
+}
+
+.button-danger:hover {
+  background-color: var(--red-color-1);
+  color: var(--white-color-1);
+  border-color: var(--red-color-11);
 }
