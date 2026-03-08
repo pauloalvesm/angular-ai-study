@@ -33,4 +33,18 @@ export class AiService {
       responseType: 'text',
     });
   }
+
+  generateImage(
+    prompt: string,
+    quality: string = 'hd',
+    n: number = 1,
+  ): Observable<string[]> {
+    const params = new HttpParams()
+      .set('prompt', prompt)
+      .set('quality', quality)
+      .set('n', n.toString());
+
+    return this.http.get<string[]>(`${this.apiUrl}/generate-image`, { params });
+  }
+
 }
