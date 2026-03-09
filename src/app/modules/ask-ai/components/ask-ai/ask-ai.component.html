@@ -1,12 +1,12 @@
 <div class="container mt-4 animate__animated">
-  <div class="card shadow-sm">
+  <div class="card shadow-sm border-success">
     <div class="card-header card-title-ia text-white text-center">
-      <h2 class="h5 mb-0">Talk With AI</h2>
+      <h2 class="h5 mb-0 fw-bold text-title">Talk With AI</h2>
     </div>
 
     <div class="card-body">
       <div class="mb-3">
-        <label for="promptInput" class="form-label fw-bold">What do you want to know?</label>
+        <label for="promptInput" class="form-label fw-bold text-title">What do you want to know?</label>
         <textarea
           id="promptInput"
           class="form-control"
@@ -19,18 +19,17 @@
       <div class="d-flex gap-2 mb-4">
         <button
           type="button"
-          class="btn btn-outline-success d-flex align-items-center"
+          class="btn button-success d-flex align-items-center"
           (click)="askAi()"
-          [disabled]="isLoading"> <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></span>
-
+          [disabled]="isLoading">
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2"></span>
           <i *ngIf="!isLoading" class="bi bi-check-square me-2"></i>
-
           {{ isLoading ? 'Processing...' : 'Ask AI' }}
         </button>
 
         <button
           type="button"
-          class="btn btn-outline-danger d-flex align-items-center"
+          class="btn button-danger d-flex align-items-center"
           (click)="handleClear()">
           <i class="bi bi-x-square me-2"></i>
           Clear
@@ -39,15 +38,25 @@
 
       <hr />
 
-      <div class="output-container p-3 border rounded bg-light" *ngIf="chatResponse || isLoading">
-        <div *ngIf="chatResponse && !isLoading" class="ai-response">
-          <p class="fw-bold border-bottom pb-2 text-success text-center">Response</p>
-          <div class="response-text">
+      <div class="output-container p-3 border rounded bg-light d-flex flex-column justify-content-center" style="min-height: 200px;">
+
+        <div *ngIf="!chatResponse && !isLoading" class="text-center py-4">
+          <h5 class="text-muted">The AI response will appear here...</h5>
+        </div>
+
+        <div *ngIf="isLoading" class="text-center py-4">
+          <div class="spinner-grow text-title" role="status"></div>
+          <p class="mt-2 text-title fw-bold">Thinking...</p>
+        </div>
+
+        <div *ngIf="chatResponse && !isLoading" class="ai-response animate__animated animate__fadeIn">
+          <p class="fw-bold border-bottom pb-2 text-response text-center">Response</p>
+          <div class="response-text" style="white-space: pre-wrap;">
             {{ chatResponse }}
           </div>
         </div>
+
       </div>
     </div>
   </div>
 </div>
-
