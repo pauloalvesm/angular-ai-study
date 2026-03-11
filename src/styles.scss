@@ -55,3 +55,8 @@ body {
   color: var(--white-color-1);
   border-color: var(--red-color-11);
 }
+
+.animation-back-in-down-2s {
+  animation: backInDown;
+  animation-duration: 2s;
+}
