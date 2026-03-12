@@ -1,14 +1,14 @@
-<div class="container mt-4 animate__animated animate__fadeIn">
+<div class="container mt-4 animate__animated animation-back-in-down-2s">
   <div class="card shadow-sm border-success">
     <div class="card-header card-title-ia text-white text-center">
-      <h3 class="h5 mb-0 fw-bold">Image Generator</h3>
+      <h3 class="h5 mb-0 fw-bold text-title">Image Generator</h3>
     </div>
 
     <div class="card-body">
       <div class="row">
         <div class="col-md-5">
           <div class="mb-3">
-            <label class="form-label fw-bold">Image Description (Prompt)</label>
+            <label class="form-label fw-bold text-title">Image Description (Prompt)</label>
             <textarea
               class="form-control"
               [(ngModel)]="request.prompt"
@@ -19,7 +19,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label fw-bold">Quality</label>
+            <label class="form-label fw-bold text-title">Quality</label>
             <select class="form-select" [(ngModel)]="request.quality" name="quality">
               <option value="standard">Standard</option>
               <option value="hd">HD</option>
@@ -27,7 +27,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label fw-bold">Number of Images</label>
+            <label class="form-label fw-bold text-title">Number of Images</label>
             <input
               type="number"
               class="form-control"
@@ -40,7 +40,7 @@
           <div class="d-flex gap-2">
             <button
               type="button"
-              class="btn btn-outline-success d-flex align-items-center"
+              class="btn button-success d-flex align-items-center"
               (click)="generateImage()"
               [disabled]="isLoading">
 
@@ -53,7 +53,7 @@
 
             <button
               type="button"
-              class="btn btn-outline-danger d-flex align-items-center"
+              class="btn button-danger d-flex align-items-center"
               (click)="handleClear()">
               <i class="bi bi-x-square me-2"></i>
               Clear
@@ -73,8 +73,8 @@
             </div>
 
             <div *ngIf="isLoading" class="text-center">
-              <div class="spinner-grow text-success" role="status"></div>
-              <p class="mt-2 text-success fw-bold">AI is creating your image...</p>
+              <div class="spinner-grow text-title" role="status"></div>
+              <p class="mt-2 fw-bold text-title">AI is creating your image...</p>
             </div>
 
             <div *ngIf="imagesResponse.length && !isLoading" class="row g-3 w-100">
