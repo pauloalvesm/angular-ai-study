@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AiService } from '../../../../core/service/ai/ai.service';
+import { Validators } from '../../../../shared/utils/Validators';
 
 @Component({
   selector: 'app-ask-ai',
@@ -15,7 +16,7 @@ export class AskAiComponent {
   constructor(private aiService: AiService) {}
 
   askAi(): void {
-    if (!this.prompt.trim()) {
+    if (!Validators.validateAskAi({ prompt: this.prompt } as any)) {
       alert('Please, enter a question!');
       return;
     }

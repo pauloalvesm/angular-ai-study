@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RecipeRequest } from '../../../../core/models/ai/RecipeRequest';
 import { AiService } from '../../../../core/service/ai/ai.service';
+import { Validators } from '../../../../shared/utils/Validators';
 
 @Component({
   selector: 'app-generate-recipe',
@@ -21,7 +22,10 @@ export class GenerateRecipeComponent {
   constructor(private aiService: AiService) {}
 
   generateRecipe(): void {
-    if (!this.request.ingredients.trim()) return;
+    if (!Validators.validateRecipe(this.request)) {
+      alert('Fill in all recipe fields!');
+      return;
+    }
 
     this.isLoading = true;
     this.recipeResponse = '';

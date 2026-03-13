@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AiService } from '../../../../core/service/ai/ai.service';
 import { ImageRequest } from '../../../../core/models/ai/ImageRequest';
+import { Validators } from '../../../../shared/utils/Validators';
 
 @Component({
   selector: 'app-generate-image',
@@ -22,7 +23,10 @@ export class GenerateImageComponent {
   constructor(private aiService: AiService) {}
 
   generateImage(): void {
-    if (!this.request.prompt.trim()) return;
+    if (!Validators.validateImage(this.request)) {
+      alert('Fill in all image fields!');
+      return;
+    }
 
     this.isLoading = true;
     this.imagesResponse = [];
