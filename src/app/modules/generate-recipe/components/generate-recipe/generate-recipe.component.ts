@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RecipeRequest } from '../../../../core/models/ai/RecipeRequest';
 import { AiService } from '../../../../core/service/ai/ai.service';
 import { Validators } from '../../../../shared/utils/Validators';
+import { ToastService } from '../../../../core/service/toast-info/toast-info.service';
 
 @Component({
   selector: 'app-generate-recipe',
@@ -19,11 +20,14 @@ export class GenerateRecipeComponent {
   recipeResponse: string = '';
   isLoading: boolean = false;
 
-  constructor(private aiService: AiService) {}
+  constructor(
+    private aiService: AiService,
+    private toastService: ToastService
+  ) {}
 
   generateRecipe(): void {
     if (!Validators.validateRecipe(this.request)) {
-      alert('Fill in all recipe fields!');
+      this.toastService.show('Fill in all recipe fields!', 'danger');
       return;
     }
 
@@ -40,11 +44,12 @@ export class GenerateRecipeComponent {
         next: (response: string) => {
           this.recipeResponse = response;
           this.isLoading = false;
+          this.toastService.show('Recipe generated successfully!', 'success');
         },
         error: (err: any) => {
           console.error(err);
-          this.recipeResponse = 'Error generating recipe. Please try again.';
           this.isLoading = false;
+          this.toastService.show('Error generating recipe. Please try again.', 'danger');
         },
       });
   }
@@ -56,5 +61,6 @@ export class GenerateRecipeComponent {
       dietaryRestrictions: 'None',
     };
     this.recipeResponse = '';
+    this.toastService.show('Recipe fields cleared.', 'warning');
   }
 }
