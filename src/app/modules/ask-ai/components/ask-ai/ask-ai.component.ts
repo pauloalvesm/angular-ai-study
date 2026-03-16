@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AiService } from '../../../../core/service/ai/ai.service';
+import { Validators } from '../../../../shared/utils/Validators';
+import { ToastService } from '../../../../core/service/toast-info/toast-info.service';
 
 @Component({
   selector: 'app-ask-ai',
@@ -12,11 +14,14 @@ export class AskAiComponent {
   chatResponse: string = '';
   isLoading: boolean = false;
 
-  constructor(private aiService: AiService) {}
+  constructor(
+    private aiService: AiService,
+    private toastService: ToastService
+  ) {}
 
   askAi(): void {
-    if (!this.prompt.trim()) {
-      alert('Please, enter a question!');
+    if (!Validators.validateAskAi({ prompt: this.prompt } as any)) {
+      this.toastService.show('Please, enter a question!', 'danger');
       return;
     }
 
@@ -27,11 +32,12 @@ export class AskAiComponent {
       next: (response: string) => {
         this.chatResponse = response;
         this.isLoading = false;
+        this.toastService.show('Response generated successfully!', 'success');
       },
       error: (err: any) => {
         console.error(err);
-        this.chatResponse = 'Error obtaining AI response.';
         this.isLoading = false;
+        this.toastService.show('Error obtaining AI response.', 'danger');
       },
     });
   }
@@ -39,5 +45,6 @@ export class AskAiComponent {
   handleClear(): void {
     this.prompt = '';
     this.chatResponse = '';
+    this.toastService.show('Fields cleared.', 'warning');
   }
 }

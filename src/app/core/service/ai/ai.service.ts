@@ -1,18 +1,17 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AiService {
-  private readonly apiUrl = 'http://localhost:8080/ai';
-
   constructor(private http: HttpClient) {}
 
   askAi(prompt: string): Observable<string> {
     const params = new HttpParams().set('prompt', prompt);
-    return this.http.get(`${this.apiUrl}/ask-ai`, {
+    return this.http.get(`${environment.apiUrl}/ask-ai`, {
       params,
       responseType: 'text',
     });
@@ -28,7 +27,7 @@ export class AiService {
       .set('cuisine', cuisine)
       .set('dietaryRestrictions', dietaryRestrictions);
 
-    return this.http.get(`${this.apiUrl}/recipe-creator`, {
+    return this.http.get(`${environment.apiUrl}/recipe-creator`, {
       params,
       responseType: 'text',
     });
@@ -44,7 +43,7 @@ export class AiService {
       .set('quality', quality)
       .set('n', n.toString());
 
-    return this.http.get<string[]>(`${this.apiUrl}/generate-image`, { params });
+    return this.http.get<string[]>(`${environment.apiUrl}/generate-image`, { params });
   }
 
 }
