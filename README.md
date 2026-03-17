@@ -6,7 +6,16 @@
 
 ## 💻 Project
 
-Repository with a SPA for AI studies.
+A repository with a single-page application designed for use with artificial intelligence; this application connects to the project
+[DotNet AI API](https://github.com/pauloalvesm/dotnet-ai-api)
+
+## 📘 Business Rule
+
+The application allows for separate API interactions within components designed for specific purposes:
+
+- Asking questions and obtaining answers.
+- Generating food recipes based on the country.
+- Creating images based on descriptions.
 
 ## 🚀 Technologies and Tools
 
@@ -16,6 +25,12 @@ This project was developed using the following technologies:
   - `Angular CLI v19.2.19`
   - `Node.js v22.13.1`
   - `NPM v11.1.0`
+  - `Bootstrap v5.3.8`
+  - `Bootstrap Icons v1.13.1`
+    
+- **Testing:**  
+  - `Jasmine`
+  - `Karma`
  
 ## 💾 How to Run Locally
 
@@ -23,7 +38,22 @@ This project was developed using the following technologies:
 # Clone the repository
 git clone https://github.com/pauloalvesm/angular-ai-study.git
 
+# Navigate to the project folder
+cd angular-ai-study
+
+# Restore dependencies
+npm install
+
+# Run the project
+ng s -o
+
 ```
+
+## 📷 Screenshots
+
+<p align="center"> <img src="https://github.com/pauloalvesm/angular-ai-study/blob/master/public/images/screenshot-1.png?raw=true"/></p>
+<p align="center"> <img src="https://github.com/pauloalvesm/angular-ai-study/blob/master/public/images/screenshot-2.png?raw=true"/></p>
+<p align="center"> <img src="https://github.com/pauloalvesm/angular-ai-study/blob/master/public/images/screenshot-3.png?raw=true"/></p>
 
 ## 👤 Author
 
