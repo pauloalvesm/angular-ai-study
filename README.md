@@ -49,7 +49,7 @@ ng s -o
 
 ```
 
-## ℹ️ Implement API key
+## ℹ️ Implement Web API
 
 Inside the `src` folder, there is another folder called `environments`. In that folder, I created the `environment.ts` file and added the [Backend URL](https://github.com/pauloalvesm/dotnet-ai-api) to enable communication with the frontend, using the following structure:
 
