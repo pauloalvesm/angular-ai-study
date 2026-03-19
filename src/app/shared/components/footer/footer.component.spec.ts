@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -9,8 +8,7 @@ describe('FooterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FooterComponent]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
@@ -19,5 +17,18 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should initialize currentYear with the actual year on ngOnInit', () => {
+    const expectedYear = new Date().getFullYear();
+
+    expect(component.currentYear).toEqual(expectedYear);
+  });
+
+  it('should render the current year in the template', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const expectedYear = new Date().getFullYear().toString();
+
+    expect(compiled.textContent).toContain(expectedYear);
   });
 });
